@@ -17,7 +17,7 @@ class BillsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @bill }
+      format.json { render json: @bill.to_json(:include => :items) }
     end
   end
 
