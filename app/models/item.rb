@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
 
-  attr_accessible :name, :price
+  attr_accessible :name, :price, :bill
 
   belongs_to :user
   belongs_to :bill

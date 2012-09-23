@@ -47,17 +47,35 @@ class ItemsController < ApplicationController
   # POST /bills/1/items.json
   def create
     @bill = Bill.find params[:bill_id]
-    @item = Item.new params[:item]
-    @item.bill = @bill
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to [@bill, @item], notice: 'Bill was successfully created.' }
-        format.json { render json: @item, status: :created, location: [@bill, @item] }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+    if !params[:items].nil?
+      # many records
+      records = []
+
+      params[:items].each do |item|
+        records.push item.merge({:bill => @bill})
       end
+
+      Item.create records
+
+      redirect_to bill_items_url
+
+    elsif !params[:item].nil?
+      # one record
+
+      @item = Item.new params[:item]
+      @item.bill = @bill
+
+      respond_to do |format|
+        if @item.save
+          format.html { redirect_to [@bill, @item], notice: 'Item was successfully created.' }
+          format.json { render json: @item, status: :created, location: [@bill, @item] }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
+      end
+
     end
   end
 
@@ -69,7 +87,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to [@bill, @item], notice: 'Bill was successfully updated.' }
+        format.html { redirect_to [@bill, @item], notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
