@@ -1,9 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  title: Item 1
   price: 1.5
+  bill: one
+  user: one
 
 two:
-  name: MyString
-  price: 1.5
+  title: Item 2
+  price: 2.5
+  bill: two
+  user: one
+
+three:
+  title: Item 3
+  price: 3.5
+  bill: one
+  user: two
+
+four:
+  title: Item 4
+  price: 4.5
+  bill: two
+  user: two

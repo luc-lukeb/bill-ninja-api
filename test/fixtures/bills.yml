@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  title: Bill One
+  owner: 1
+  items: [1,2,3]
 
 two:
-  name: MyString
+  title: Bill Two
+  owner: 2
+  items: [3,4,5]
