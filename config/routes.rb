@@ -1,12 +1,10 @@
 BillNinjaApi::Application.routes.draw do
 
-  resources :items
-
   resources :users
 
-  resources :bills
-
-  get "home/index"
+  resources :bills do
+    resources :items
+  end
 
   root :to => "home#index"
 
