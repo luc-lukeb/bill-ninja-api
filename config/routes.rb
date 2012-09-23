@@ -1,5 +1,7 @@
 BillNinjaApi::Application.routes.draw do
 
+  resources :bills
+
   get "home/index"
 
   root :to => "home#index"
