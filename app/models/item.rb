@@ -5,4 +5,6 @@ class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :bill
 
+  accepts_nested_attributes_for :bill
+
 end
