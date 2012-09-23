@@ -1,5 +1,7 @@
 BillNinjaApi::Application.routes.draw do
 
+  resources :users
+
   resources :bills
 
   get "home/index"
