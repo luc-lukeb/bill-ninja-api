@@ -9,6 +9,7 @@ gem 'rails', '3.2.8'
 
 gem  'heroku'
 gem  'thin'
+gem  'yajl-ruby'
 
 group :development, :test do
   gem 'sqlite3'

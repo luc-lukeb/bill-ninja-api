@@ -13,8 +13,13 @@ class ItemsController < ApplicationController
   def create
     @bill = Bill.find(params[:bill_id])
 
-    params[:items].each do |item|
-      item = @bill.items.create(item)
+    unless params[:items].nil?
+      params[:items].each do |item|
+        @item = Item.new
+        @item.name = item[:name]
+        @item.bill = @bill
+        @item.save
+      end
     end
   end
 
