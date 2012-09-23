@@ -13,13 +13,13 @@
   <tr>
     <td><%= item.name %></td>
     <td><%= item.price %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', bill_item_path(@bill, item) %></td>
+    <td><%= link_to 'Edit', edit_bill_item_path(@bill, item) %></td>
+    <td><%= link_to 'Destroy', bill_item_path(@bill, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'New Item', new_bill_item_path %>
