@@ -1,6 +1,6 @@
 class Bill < ActiveRecord::Base
 
-  attr_accessible :name, :user
+  attr_accessible :name, :user, :title
 
   belongs_to :user
   has_many :items, :dependent => :destroy
