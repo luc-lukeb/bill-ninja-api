@@ -2,10 +2,8 @@
 
 one:
   title: Bill One
-  owner: 1
-  items: [1,2,3]
+  user_id: 1
 
 two:
   title: Bill Two
-  owner: 2
-  items: [3,4,5]
+  user_id: 2
