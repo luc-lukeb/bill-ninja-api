@@ -12,7 +12,7 @@ class BillTest < ActiveSupport::TestCase
   end
 
   test "should save Bill with title and user and items" do
-    bill = Bill.new(:title => "Fake Bill Title", :user => users(:two), :items => [items(:two)])
+    bill = Bill.new(:title => "Fake Bill Title", :user => users(:two))
     assert bill.save
   end
 
